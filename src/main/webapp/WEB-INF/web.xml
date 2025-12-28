@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Root element of a Java EE web application descriptor -->
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="
+         http://xmlns.jcp.org/xml/ns/javaee
+         http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+         
+    <!-- Human-readable name of the web application -->
+    <display-name>Banking Application</display-name>
+
+    <!-- ================== SERVLET CONFIGURATION ================== -->
+    <servlet>
+        <!-- Name of the servlet (used for mapping) -->
+        <servlet-name>jersey</servlet-name>
+        
+        <!-- Fully qualified class of the servlet -->
+        <servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
+
+        <!-- ================== SERVLET INIT PARAMETERS ================== -->
+        <!-- Package where Jersey will scan for REST controllers/resources -->
+        <init-param>
+            <param-name>jersey.config.server.provider.packages</param-name>
+            <param-value>com.bank.management.controller</param-value>
+        </init-param>
+
+        <!-- Specific configuration class for Jersey -->
+        <init-param>
+            <param-name>jersey.config.server.provider.classnames</param-name>
+            <param-value>com.bank.management.config.AppConfig</param-value>
+        </init-param>
+
+        <!-- Load servlet at startup (priority = 1) -->
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+    <!-- ================== SERVLET MAPPING ================== -->
+    <!-- Map the servlet to a URL pattern -->
+    <servlet-mapping>
+        <servlet-name>jersey</servlet-name>
+        <url-pattern>/api/*</url-pattern> <!-- All URLs under /api/ go to this servlet -->
+    </servlet-mapping>
+
+</web-app>
