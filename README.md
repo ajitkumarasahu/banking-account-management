@@ -72,7 +72,7 @@ No negative transactions<br>
 Sufficient balance check<br>
 Unique account number generation<br>
 
-👨‍💻 Author<br>
+👨‍💻 Author: AJIT KUMAR SAHU<br>
 
 Bank Management System<br>
 Developed using Java & REST APIs<br>
